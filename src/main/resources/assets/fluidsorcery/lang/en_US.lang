@@ -1,0 +1,19 @@
+tile.BlockFountainBrick.name=Fountain Brick
+tile.BlockNoviceTank.name=Novice Receptacle
+tile.fluidsorcery.fluid.scorch.name=Scorch
+tis.fluidsorcery.fluid.mist.nsme=Mist
+item.ItemManual.name=Fluimancer's Manual
+item.ItemScorchedLeather.name=Scorched Leather
+item.ItemGaleThread.name=Gale Thread
+item.ItemMistFibers.name=Mist Fibers
+
+
+
+itemGroup.fluidsorcery=Fluid Sorcery
+
+
+
+
+
+
+

@@ -4,7 +4,7 @@ import com.fuzzypickles14.fluidsorcery.common.blocks.ModBlocks;
 import com.fuzzypickles14.fluidsorcery.common.lib.LibModDetails;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 
 /**
@@ -16,8 +16,6 @@ public final class FluidSorceryBlockRender {
 
         //Fountain
         registerBlock(ModBlocks.fountainBrick);
-
-
         registerBlock(ModBlocks.tankNovice);
     }
 
