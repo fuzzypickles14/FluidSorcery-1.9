@@ -17,10 +17,10 @@ public class ModItems {
     public static MistFibers mistFibers;
 
     public static void initItems() {
-        GameRegistry.registerItem(itemManual = new ItemManual("ItemManual"), "ItemManual");
-        GameRegistry.registerItem(scorchLeather = new ScorchedLeather("ItemScorchedLeather"), "ItemScorchedLeather");
-        GameRegistry.registerItem(galeThread = new GaleThread("ItemGaleThread"), "ItemGaleThread");
-        GameRegistry.registerItem(mistFibers = new MistFibers("ItemMistFibers"), "ItemMistFibers");
+        GameRegistry.register(itemManual = new ItemManual("ItemManual"));
+        GameRegistry.register(scorchLeather = new ScorchedLeather("ItemScorchedLeather"));
+        GameRegistry.register(galeThread = new GaleThread("ItemGaleThread"));
+        GameRegistry.register(mistFibers = new MistFibers("ItemMistFibers"));
     }
 }
 

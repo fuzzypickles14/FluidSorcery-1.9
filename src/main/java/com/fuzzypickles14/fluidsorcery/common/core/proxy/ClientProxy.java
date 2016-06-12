@@ -1,5 +1,7 @@
 package com.fuzzypickles14.fluidsorcery.common.core.proxy;
 
+import com.fuzzypickles14.fluidsorcery.common.blocks.ModBlock;
+import com.fuzzypickles14.fluidsorcery.common.blocks.ModBlocks;
 import com.fuzzypickles14.fluidsorcery.common.core.render.FluidSorceryBlockRender;
 import com.fuzzypickles14.fluidsorcery.common.core.render.FluidSorceryItemRender;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -18,7 +20,7 @@ public class ClientProxy extends CommonProxy {
 
     public void init(FMLInitializationEvent event) {
         super.init(event);
-        FluidSorceryBlockRender.registerBlockRender();
+        ModBlocks.renderBlocks();
         FluidSorceryItemRender.registerItemRender();
 
     }

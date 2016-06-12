@@ -9,14 +9,11 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumWorldBlockLayer;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
  * Created by Andrew Toomey on 2/13/2016.
@@ -25,27 +22,12 @@ public class BlockTankNovice extends BlockTank implements ITileEntityProvider {
     public BlockTankNovice(Material materialIn, String unlocalizedName, float hardness, float resistance) {
         super(materialIn, unlocalizedName, hardness, resistance);
     }
-
-    @Override
-    public boolean isOpaqueCube() {
-        return false;
-    }
-
-    @Override
-    public boolean isFullCube() {
-        return false;
-    }
-
-    @SideOnly(Side.CLIENT)
-    public EnumWorldBlockLayer getBlockLayer() {
-        return EnumWorldBlockLayer.CUTOUT;
-    }
-
     @Override
     public TileEntity createNewTileEntity(World worldIn, int meta) {
         return new TileTankNovice(LibFluid.NOVICE_TANK_FILL_MULTIPLIER, LibFluid.NOVICE_TANK_CAPACITY_MULTIPLIER);
     }
 
+    /**
     @Override
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumFacing side, float hitX, float hitY, float hitZ) {
         if (super.onBlockActivated(worldIn, pos, state, playerIn, side, hitX, hitY, hitZ)) {
@@ -111,6 +93,7 @@ public class BlockTankNovice extends BlockTank implements ITileEntityProvider {
         }
         return false;
     }
+    **/
 
 
 

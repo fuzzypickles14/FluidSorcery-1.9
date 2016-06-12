@@ -12,5 +12,6 @@ public class ModItem extends Item {
         super();
         this.setUnlocalizedName(unlocalizedName);
         this.setCreativeTab(FluidSorceryCreativeTab.instance);
+        this.setRegistryName(unlocalizedName);
     }
 }

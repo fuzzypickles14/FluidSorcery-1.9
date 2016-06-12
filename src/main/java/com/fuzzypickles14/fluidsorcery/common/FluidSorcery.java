@@ -2,6 +2,7 @@ package com.fuzzypickles14.fluidsorcery.common;
 
 import com.fuzzypickles14.fluidsorcery.common.core.proxy.CommonProxy;
 import com.fuzzypickles14.fluidsorcery.common.lib.LibModDetails;
+import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -29,6 +30,11 @@ public class FluidSorcery
     {
         proxy.init(event);
 
+    }
+
+    static
+    {
+        FluidRegistry.enableUniversalBucket();
     }
 
     @EventHandler

@@ -14,5 +14,6 @@ public class ModBlock extends Block {
         this.setUnlocalizedName(unlocalizedName);
         this.setHardness(hardness);
         this.setResistance(resistance);
+        this.setRegistryName(unlocalizedName);
     }
 }

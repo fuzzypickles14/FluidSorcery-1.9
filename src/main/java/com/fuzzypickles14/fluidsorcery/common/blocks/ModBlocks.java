@@ -5,12 +5,14 @@ import com.fuzzypickles14.fluidsorcery.common.blocks.tanks.BlockTank;
 import com.fuzzypickles14.fluidsorcery.common.blocks.tanks.BlockTankNovice;
 import com.fuzzypickles14.fluidsorcery.common.blocks.tileEntities.TileTankNovice;
 import com.fuzzypickles14.fluidsorcery.common.core.render.FluidRenderer;
+import com.fuzzypickles14.fluidsorcery.common.core.render.FluidSorceryBlockRender;
 import com.fuzzypickles14.fluidsorcery.common.fluid.blockfluids.BlockMist;
 import com.fuzzypickles14.fluidsorcery.common.fluid.blockfluids.BlockScorch;
 import com.fuzzypickles14.fluidsorcery.common.fluid.fluids.FluidMist;
 import com.fuzzypickles14.fluidsorcery.common.fluid.fluids.FluidScorch;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.item.ItemBlock;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
@@ -19,7 +21,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
  */
 public class ModBlocks {
 
-    public static BlockFountainBrick fountainBrick;
+    public static Block fountainBrick;
     public static BlockTank tankNovice;
 
     public static Block scorch;
@@ -29,17 +31,33 @@ public class ModBlocks {
 
     public static void initBlocks() {
         FluidRegistry.registerFluid(new FluidScorch());
-        scorch = GameRegistry.registerBlock(new BlockScorch(), "scorch");
+        scorch = GameRegistry.register(new BlockScorch());
 
         FluidRegistry.registerFluid(new FluidMist());
-        mist = GameRegistry.registerBlock(new BlockMist(), "mist");
 
-        FluidRenderer.renderFluid(scorch);
-        FluidRenderer.renderFluid(mist);
+        mist = GameRegistry.register(new BlockMist());
 
-        GameRegistry.registerBlock(tankNovice =new BlockTankNovice(Material.glass, "BlockNoviceTank", 0.5F, 15), "BlockNoviceTank");
-        GameRegistry.registerBlock(fountainBrick = new BlockFountainBrick(Material.rock, "BlockFountainBrick", 3, 15), "BlockFountainBrick");
+        fountainBrick = registerBlock(new BlockFountainBrick(Material.rock, "BlockFountainBrick", 4.0f, 4.0f), "BlockFountainBrick");
+
+
+        //FluidRenderer.renderFluid(scorch);
+        //FluidRenderer.renderFluid(mist);
+
 
         GameRegistry.registerTileEntity(TileTankNovice.class, "TileTankNovice");
+    }
+
+    public static void renderBlocks()
+    {
+        FluidSorceryBlockRender.registerBlockRender(fountainBrick, 0, fountainBrick.getUnlocalizedName(), "inventory");
+    }
+
+    private static Block registerBlock(Block block, String name)
+    {
+        if (block.getRegistryName() == null)
+            block.setRegistryName(name);
+        GameRegistry.register(block);
+        GameRegistry.register(new ItemBlock(block).setRegistryName(name));
+        return block;
     }
 }
