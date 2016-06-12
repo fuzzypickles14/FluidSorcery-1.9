@@ -21,6 +21,8 @@ public abstract class ModBlockLiquid extends BlockFluidClassic {
         super(fluid, material);
 
         displacements.put(this, false);
+        this.setRegistryName(fluid.getName());
+        this.setUnlocalizedName(fluid.getName());
         this.setCreativeTab(FluidSorceryCreativeTab.instance);
 
     }

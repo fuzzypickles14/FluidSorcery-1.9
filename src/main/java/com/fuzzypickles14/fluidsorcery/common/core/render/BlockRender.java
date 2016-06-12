@@ -10,7 +10,7 @@ import net.minecraftforge.client.model.ModelLoader;
 /**
  * Created by Andrew Toomey on 2/13/2016.
  */
-public final class FluidSorceryBlockRender {
+public final class BlockRender {
 
 
 

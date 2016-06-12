@@ -29,11 +29,9 @@ public final class FluidRenderer {
                 return new ModelResourceLocation(LibModDetails.MOD_ID + ":" + toRender.getClass().getSimpleName(), "fluid");
             }
         });
-        ModelLoader.setCustomStateMapper(block, new StateMapperBase()
-        {
+        ModelLoader.setCustomStateMapper(block, new StateMapperBase() {
             @Override
-            protected ModelResourceLocation getModelResourceLocation(IBlockState state)
-            {
+            protected ModelResourceLocation getModelResourceLocation(IBlockState state) {
                 return new ModelResourceLocation(LibModDetails.MOD_ID + ":" + toRender.getClass().getSimpleName(), "fluid");
             }
         });

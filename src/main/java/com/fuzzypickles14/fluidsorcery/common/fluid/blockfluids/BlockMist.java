@@ -21,7 +21,6 @@ public class BlockMist extends ModBlockLiquid {
     public BlockMist() {
         super(mist, Material.water);
         setUnlocalizedName(LibModDetails.MOD_ID + ".fluid.mist");
-        setRegistryName("BlockMist");
         mist.setBlock(this);
     }
 

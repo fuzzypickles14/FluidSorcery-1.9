@@ -24,7 +24,6 @@ public class BlockScorch extends ModBlockLiquid {
     public BlockScorch() {
         super(scorch, Material.water);
         setUnlocalizedName(LibModDetails.MOD_ID + ".fluid.scorch");
-        setRegistryName("BlockScorch");
         scorch.setBlock(this);
     }
 

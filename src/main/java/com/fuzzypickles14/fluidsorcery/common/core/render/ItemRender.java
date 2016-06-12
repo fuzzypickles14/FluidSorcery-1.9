@@ -9,7 +9,7 @@ import net.minecraft.item.Item;
 /**
  * Created by Andrew Toomey on 2/13/2016.
  */
-public final class FluidSorceryItemRender {
+public final class ItemRender {
 
     public static void registerItemRender() {
         registerItem(ModItems.itemManual);
