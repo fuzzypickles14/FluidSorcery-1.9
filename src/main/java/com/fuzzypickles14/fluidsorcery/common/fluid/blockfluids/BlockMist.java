@@ -29,16 +29,18 @@ public class BlockMist extends ModBlockLiquid {
     public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, Entity entityIn) {
         if (entityIn instanceof EntityPlayer && this.isSourceBlock(worldIn, pos)) {
             EntityPlayer player = (EntityPlayer) entityIn;
-            if (player.inventory.getCurrentItem() != null && getBlockFromItem(player.inventory.getCurrentItem().getItem()) == Blocks.web) {
-                if (player.inventory.getCurrentItem().stackSize <= 8) {
-                    player.inventory.addItemStackToInventory(new ItemStack(ModItems.mistFibers, player.inventory.getCurrentItem().stackSize = player.inventory.getCurrentItem().stackSize));
-                    player.inventory.removeStackFromSlot(player.inventory.currentItem);
-                } else {
-                    player.inventory.getCurrentItem().stackSize = player.inventory.getCurrentItem().stackSize - 8;
-                    player.inventory.addItemStackToInventory(new ItemStack(ModItems.mistFibers, 8));
+            if (player.getPosition().getY() == pos.getY() - 1) {
+                if (player.inventory.getCurrentItem() != null && getBlockFromItem(player.inventory.getCurrentItem().getItem()) == Blocks.web) {
+                    if (player.inventory.getCurrentItem().stackSize <= 8) {
+                        player.inventory.addItemStackToInventory(new ItemStack(ModItems.mistFibers, player.inventory.getCurrentItem().stackSize = player.inventory.getCurrentItem().stackSize));
+                        player.inventory.removeStackFromSlot(player.inventory.currentItem);
+                    } else {
+                        player.inventory.getCurrentItem().stackSize = player.inventory.getCurrentItem().stackSize - 8;
+                        player.inventory.addItemStackToInventory(new ItemStack(ModItems.mistFibers, 8));
+                    }
                 }
+                worldIn.setBlockToAir(pos);
             }
-            worldIn.setBlockToAir(pos);
         }
     }
 }
