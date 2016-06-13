@@ -9,6 +9,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -19,28 +20,8 @@ import net.minecraft.world.World;
 public class BlockMist extends ModBlockLiquid {
     public static ModFluid mist = new FluidMist();
     public BlockMist() {
-        super(mist, Material.water);
+        super(mist, Material.water, Item.getItemFromBlock(Blocks.web), ModItems.mistFibers);
         setUnlocalizedName(LibModDetails.MOD_ID + ".fluid.mist");
         mist.setBlock(this);
-    }
-
-
-    @Override
-    public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, Entity entityIn) {
-        if (entityIn instanceof EntityPlayer && this.isSourceBlock(worldIn, pos)) {
-            EntityPlayer player = (EntityPlayer) entityIn;
-            if (player.getPosition().getY() == pos.getY() - 1) {
-                if (player.inventory.getCurrentItem() != null && getBlockFromItem(player.inventory.getCurrentItem().getItem()) == Blocks.web) {
-                    if (player.inventory.getCurrentItem().stackSize <= 8) {
-                        player.inventory.addItemStackToInventory(new ItemStack(ModItems.mistFibers, player.inventory.getCurrentItem().stackSize = player.inventory.getCurrentItem().stackSize));
-                        player.inventory.removeStackFromSlot(player.inventory.currentItem);
-                    } else {
-                        player.inventory.getCurrentItem().stackSize = player.inventory.getCurrentItem().stackSize - 8;
-                        player.inventory.addItemStackToInventory(new ItemStack(ModItems.mistFibers, 8));
-                    }
-                }
-                worldIn.setBlockToAir(pos);
-            }
-        }
     }
 }

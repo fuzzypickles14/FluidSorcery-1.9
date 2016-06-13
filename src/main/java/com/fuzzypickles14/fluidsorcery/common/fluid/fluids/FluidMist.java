@@ -11,7 +11,6 @@ public class FluidMist extends ModFluid {
 
     public FluidMist() {
         super("mist", new ResourceLocation(LibModDetails.MOD_ID + ":blocks/mistStill"), new ResourceLocation(LibModDetails.MOD_ID + ":blocks/mistFlow"));
-
         setDensity(2000);
         setViscosity(2000);
     }
