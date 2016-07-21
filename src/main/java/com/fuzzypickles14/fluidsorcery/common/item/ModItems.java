@@ -3,7 +3,7 @@ package com.fuzzypickles14.fluidsorcery.common.item;
 import com.fuzzypickles14.fluidsorcery.common.item.items.GaleThread;
 import com.fuzzypickles14.fluidsorcery.common.item.items.MistFibers;
 import com.fuzzypickles14.fluidsorcery.common.item.items.ScorchedLeather;
-import com.fuzzypickles14.fluidsorcery.common.manual.ItemManual;
+import com.fuzzypickles14.fluidsorcery.common.item.items.ItemManual;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 /**
