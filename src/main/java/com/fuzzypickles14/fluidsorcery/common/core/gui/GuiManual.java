@@ -1,5 +1,6 @@
 package com.fuzzypickles14.fluidsorcery.common.core.gui;
 
+import com.fuzzypickles14.fluidsorcery.common.core.manual.ManualPage;
 import com.fuzzypickles14.fluidsorcery.common.lib.LibModDetails;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
@@ -13,12 +14,12 @@ import java.io.IOException;
  */
 public class GuiManual extends GuiScreen
 {
-    private int ImageWidth = 192;
-    private int ImageHeigth = 192;
+    protected int ImageWidth = 192;
+    protected int ImageHeigth = 192;
 
     public static final ResourceLocation texture = new ResourceLocation(LibModDetails.MOD_ID + ":textures/gui/ManualGui.png");
 
-    private GuiButton pageBack, pageForward;
+    protected GuiButton pageBack, pageForward;
 
 
     @Override
@@ -40,18 +41,12 @@ public class GuiManual extends GuiScreen
         super.drawScreen(mouseX, mouseY, partialTicks);
     }
 
-    private void drawPopup()
-    {
-        this.fontRendererObj.drawString("This is a test popup", this.ImageWidth/2 + 70, 2 + 16 + 32, 0);
-    }
-
     @Override
     protected void actionPerformed(GuiButton button) throws IOException
     {
-        if (button == this.pageBack)
+        if (button == this.pageForward)
         {
-            this.drawPopup();
-            this.mc.updateDisplay();
+            this.mc.displayGuiScreen(new ManualPage(this));
         }
     }
 
