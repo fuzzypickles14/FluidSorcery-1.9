@@ -13,16 +13,22 @@ public class ManualPage extends GuiManual
 {
 
     private GuiScreen previousPage;
+    protected GuiButton pageBack, pageForward;
+    protected int ImageWidth = 192;
+    protected int ImageHeigth = 192;
+    private String name;
 
-    public ManualPage(GuiScreen previousPage)
+    public ManualPage(GuiScreen previousPage, String name)
     {
         this.previousPage = previousPage;
+        this.name = name;
     }
+
     @Override
     public void initGui()
     {
-        this.buttonList.add(this.pageBack = new GuiButton(0, this.ImageWidth / 2 + 60, 150, 20, 20,""));
-        this.buttonList.add(this.pageForward = new GuiButton(0, this.ImageWidth / 2 + 150, 150, 20, 20,""));
+        this.buttonList.add(this.pageBack = new GuiButton(0, (this.width - this.ImageWidth) / 2 + 40, 70, 20, 20,""));
+        this.buttonList.add(this.pageForward = new GuiButton(0, (this.width - this.ImageWidth)/2 + 130, 70, 20, 20,""));
     }
 
     @Override
@@ -34,7 +40,7 @@ public class ManualPage extends GuiManual
 
     private void drawPopup()
     {
-        this.fontRendererObj.drawString("This is a test popup", this.ImageWidth/2 + 70, 2 + 16 + 32, 0);
+        this.fontRendererObj.drawString(this.name, this.ImageWidth/2 + 70, 2 + 16 + 32, 0);
     }
 
     @Override
@@ -44,5 +50,10 @@ public class ManualPage extends GuiManual
         {
             this.mc.displayGuiScreen(previousPage);
         }
+    }
+
+    @Override
+    public boolean doesGuiPauseGame() {
+        return false;
     }
 }

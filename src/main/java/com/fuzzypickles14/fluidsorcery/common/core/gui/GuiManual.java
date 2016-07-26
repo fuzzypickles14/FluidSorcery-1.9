@@ -1,5 +1,6 @@
 package com.fuzzypickles14.fluidsorcery.common.core.gui;
 
+import com.fuzzypickles14.fluidsorcery.common.core.manual.ManualChapter;
 import com.fuzzypickles14.fluidsorcery.common.core.manual.ManualPage;
 import com.fuzzypickles14.fluidsorcery.common.lib.LibModDetails;
 import net.minecraft.client.gui.GuiButton;
@@ -19,14 +20,15 @@ public class GuiManual extends GuiScreen
 
     public static final ResourceLocation texture = new ResourceLocation(LibModDetails.MOD_ID + ":textures/gui/ManualGui.png");
 
-    protected GuiButton pageBack, pageForward;
+    protected GuiButton chapterButton;
+    private ManualChapter testChapter;
 
 
     @Override
     public void initGui()
     {
-        this.buttonList.add(this.pageBack = new GuiButton(0, this.ImageWidth / 2 + 60, 150, 20, 20,""));
-        this.buttonList.add(this.pageForward = new GuiButton(0, this.ImageWidth / 2 + 150, 150, 20, 20,""));
+        this.testChapter = new ManualChapter("Chapter 1", new ManualPage(this, "Welcome to page 1"));
+        this.buttonList.add(this.chapterButton = new GuiButton(0, (this.width - this.ImageWidth) / 2 + 55, 50, 30, 5,"Chapter 1"));
     }
 
     @Override
@@ -37,16 +39,16 @@ public class GuiManual extends GuiScreen
         int i = (this.width - this.ImageWidth) / 2;
         int j = 2;
         this.drawTexturedModalRect(i, j, 0, 0, this.ImageWidth, this.ImageHeigth);
-        this.fontRendererObj.drawString("Fluimancer's Manual", this.ImageWidth/2 + 70, j + 16 + 16, 0);
+        this.fontRendererObj.drawString("Fluimancer's Manual", i + 40, j + 16 + 16, 0);
         super.drawScreen(mouseX, mouseY, partialTicks);
     }
 
     @Override
     protected void actionPerformed(GuiButton button) throws IOException
     {
-        if (button == this.pageForward)
+        if (button == this.chapterButton)
         {
-            this.mc.displayGuiScreen(new ManualPage(this));
+            this.mc.displayGuiScreen(this.testChapter.getChapterPages().get(0));
         }
     }
 
