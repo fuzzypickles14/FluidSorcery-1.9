@@ -1,7 +1,7 @@
 package com.fuzzypickles14.fluidsorcery.common.core.gui;
 
 import com.fuzzypickles14.fluidsorcery.common.core.manual.ManualChapter;
-import com.fuzzypickles14.fluidsorcery.common.core.manual.ManualPage;
+import com.fuzzypickles14.fluidsorcery.common.lib.LibChapters;
 import com.fuzzypickles14.fluidsorcery.common.lib.LibModDetails;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
@@ -9,6 +9,7 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.ResourceLocation;
 
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Created by Andrew Toomey on 7/20/2016.
@@ -20,15 +21,19 @@ public class GuiManual extends GuiScreen
 
     public static final ResourceLocation texture = new ResourceLocation(LibModDetails.MOD_ID + ":textures/gui/ManualGui.png");
 
-    protected GuiButton chapterButton;
-    private ManualChapter testChapter;
+    //protected GuiButton chapterButton;
+    protected ManualChapter currentChapter;
+    protected GuiButton pageBack, pageForward;
+
+    protected static List<ManualChapter> chapters = LibChapters.ChapterList;
 
 
     @Override
     public void initGui()
     {
-        this.testChapter = new ManualChapter("Chapter 1", new ManualPage(this, "Welcome to page 1"));
-        this.buttonList.add(this.chapterButton = new GuiButton(0, (this.width - this.ImageWidth) / 2 + 55, 50, 30, 5,"Chapter 1"));
+        this.buttonList.add(new GuiButton(1, (this.width - this.ImageWidth) / 2 + 55, 50, 30, 5,"Chapter 1"));
+        this.buttonList.add(new GuiButton(2, (this.width - this.ImageWidth) / 2 + 55, 70, 30, 5,"Chapter 2"));
+        this.buttonList.add(new GuiButton(3, (this.width - this.ImageWidth) / 2 + 55, 90, 30, 5,"Chapter 3"));
     }
 
     @Override
@@ -46,12 +51,21 @@ public class GuiManual extends GuiScreen
     @Override
     protected void actionPerformed(GuiButton button) throws IOException
     {
-        if (button == this.chapterButton)
+        if (button.id >= 1)
         {
-            this.mc.displayGuiScreen(this.testChapter.getChapterPages().get(0));
+            this.currentChapter = this.getChapterByButton(button.id);
+            this.mc.displayGuiScreen(currentChapter.FirstPage());
+        }
+        else if (button == this.pageForward)
+        {
+            this.mc.displayGuiScreen(currentChapter.GetNextPage());
         }
     }
 
+    protected ManualChapter getChapterByButton(int id)
+    {
+        return chapters.get(id - 1);
+    }
     @Override
     public boolean doesGuiPauseGame() {
         return false;
