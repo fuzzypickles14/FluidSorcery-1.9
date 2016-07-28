@@ -1,6 +1,8 @@
 package com.fuzzypickles14.fluidsorcery.common.core.manual;
 
 import com.fuzzypickles14.fluidsorcery.common.core.gui.GuiManual;
+import com.fuzzypickles14.fluidsorcery.common.core.manual.button.PageBackButton;
+import com.fuzzypickles14.fluidsorcery.common.core.manual.button.PageForwardButton;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 
@@ -27,8 +29,8 @@ public class ManualPage extends GuiManual
     public void initGui()
     {
         this.currentChapter = this.getChapterByButton(this.chapterId);
-        this.buttonList.add(this.pageBack = new GuiButton(0, (this.width - this.ImageWidth) / 2 + 40, 70, 20, 20,""));
-        this.buttonList.add(this.pageForward = new GuiButton(0, (this.width - this.ImageWidth)/2 + 130, 70, 20, 20,""));
+        this.buttonList.add(this.pageForward = new PageForwardButton(0, (this.width - this.ImageWidth) / 2 + 130, 150, 18, 10,""));
+        this.buttonList.add(this.pageBack = new PageBackButton(0, (this.width - this.ImageWidth)/2 + 40, 150, 18, 10,""));
     }
 
     @Override
@@ -40,7 +42,7 @@ public class ManualPage extends GuiManual
 
     private void drawPopup()
     {
-        this.fontRendererObj.drawString(this.name, this.ImageWidth/2 + 70, 2 + 16 + 32, 0);
+        this.fontRendererObj.drawString(this.name, (this.width - this.ImageWidth)/2 + 50, 2 + 16 + 32, 0);
     }
 
     @Override

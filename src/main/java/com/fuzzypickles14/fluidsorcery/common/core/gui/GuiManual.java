@@ -1,6 +1,9 @@
 package com.fuzzypickles14.fluidsorcery.common.core.gui;
 
 import com.fuzzypickles14.fluidsorcery.common.core.manual.ManualChapter;
+import com.fuzzypickles14.fluidsorcery.common.core.manual.button.ModButton;
+import com.fuzzypickles14.fluidsorcery.common.core.manual.button.PageBackButton;
+import com.fuzzypickles14.fluidsorcery.common.core.manual.button.PageForwardButton;
 import com.fuzzypickles14.fluidsorcery.common.lib.LibChapters;
 import com.fuzzypickles14.fluidsorcery.common.lib.LibModDetails;
 import net.minecraft.client.gui.GuiButton;
@@ -21,9 +24,9 @@ public class GuiManual extends GuiScreen
 
     public static final ResourceLocation texture = new ResourceLocation(LibModDetails.MOD_ID + ":textures/gui/ManualGui.png");
 
-    //protected GuiButton chapterButton;
     protected ManualChapter currentChapter;
-    protected GuiButton pageBack, pageForward;
+    protected PageBackButton pageBack;
+    protected PageForwardButton pageForward;
 
     protected static List<ManualChapter> chapters = LibChapters.ChapterList;
 
@@ -31,9 +34,9 @@ public class GuiManual extends GuiScreen
     @Override
     public void initGui()
     {
-        this.buttonList.add(new GuiButton(1, (this.width - this.ImageWidth) / 2 + 55, 50, 30, 5,"Chapter 1"));
-        this.buttonList.add(new GuiButton(2, (this.width - this.ImageWidth) / 2 + 55, 70, 30, 5,"Chapter 2"));
-        this.buttonList.add(new GuiButton(3, (this.width - this.ImageWidth) / 2 + 55, 90, 30, 5,"Chapter 3"));
+        this.buttonList.add(new ModButton(1, (this.width - this.ImageWidth) / 2 + 40, 50, 40, 5,"Chapter 1"));
+        this.buttonList.add(new ModButton(2, (this.width - this.ImageWidth) / 2 + 40, 70, 40, 5,"Chapter 2"));
+        this.buttonList.add(new ModButton(3, (this.width - this.ImageWidth) / 2 + 40, 90, 40, 5,"Chapter 3"));
     }
 
     @Override
