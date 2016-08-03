@@ -4,9 +4,9 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.util.ResourceLocation;
 
 import java.awt.*;
+
 
 /**
  * Created by Andrew Toomey on 7/21/2016.
@@ -31,16 +31,11 @@ public class ModButton extends GuiButton {
             GlStateManager.tryBlendFuncSeparate(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA, GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ZERO);
             GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
             this.mouseDragged(mc, mouseX, mouseY);
-            int j = 14737632;
-
-            if (packedFGColour != 0) {
-                j = packedFGColour;
-            } else if (!this.enabled) {
-                j = 10526880;
-            } else if (this.hovered) {
-                j = 16777120;
+            int j = Color.black.getRGB();
+            if (this.hovered) {
+                j = Color.blue.getRGB();
             }
-            this.drawCenteredString(fontrenderer, this.displayString, this.xPosition + this.width / 2, this.yPosition + (this.height - 8) / 2, j);
+            fontrenderer.drawString(this.displayString, (this.xPosition + this.width) / 2 + 55, this.yPosition + (this.height - 8) / 2, j);
         }
     }
 }

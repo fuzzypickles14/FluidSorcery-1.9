@@ -15,13 +15,13 @@ public class ManualPage extends GuiManual
 {
 
     private GuiScreen previousPage;
-    private String name;
+    private String info;
     int chapterId;
 
-    public ManualPage(GuiScreen previousPage, String name, int chapterId)
+    public ManualPage(GuiScreen previousPage, String info, int chapterId)
     {
         this.previousPage = previousPage;
-        this.name = name;
+        this.info = info;
         this.chapterId = chapterId;
     }
 
@@ -42,7 +42,7 @@ public class ManualPage extends GuiManual
 
     private void drawPopup()
     {
-        this.fontRendererObj.drawString(this.name, (this.width - this.ImageWidth)/2 + 50, 2 + 16 + 32, 0);
+        this.fontRendererObj.drawSplitString(this.info, (this.width - this.ImageWidth)/2 + 50, 35, 100, 0);
     }
 
     @Override

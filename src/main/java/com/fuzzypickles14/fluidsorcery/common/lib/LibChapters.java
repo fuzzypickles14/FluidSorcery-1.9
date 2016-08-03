@@ -13,7 +13,7 @@ import java.util.List;
  */
 public class LibChapters
 {
-    private static ManualPage Chapter1Page1 = new ManualPage(new GuiManual(), "This is Page 1", 1);
+    private static ManualPage Chapter1Page1 = new ManualPage(new GuiManual(), "As you journey through the world you will find pools of naturally occurring magic fluid. These types you will find will be Scorch, Mist, Terrene and Aer", 1);
     private static ManualPage Chapter1Page2 = new ManualPage(Chapter1Page1, "This is Page 2", 1);
     private static ManualPage Chapter1Page3 = new ManualPage(Chapter1Page2, "This is Page 3", 1);
     private static ManualPage Chapter1Page4 = new ManualPage(Chapter1Page3, "This is Page 4", 1);

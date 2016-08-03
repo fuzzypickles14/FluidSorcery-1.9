@@ -47,7 +47,7 @@ public class GuiManual extends GuiScreen
         int i = (this.width - this.ImageWidth) / 2;
         int j = 2;
         this.drawTexturedModalRect(i, j, 0, 0, this.ImageWidth, this.ImageHeigth);
-        this.fontRendererObj.drawString("Fluimancer's Manual", i + 40, j + 16 + 16, 0);
+        this.fontRendererObj.drawString("Fluimancer's Manual", i + 40, j + 20, 0);
         super.drawScreen(mouseX, mouseY, partialTicks);
     }
 

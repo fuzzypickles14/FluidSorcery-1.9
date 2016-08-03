@@ -139,7 +139,7 @@ Build 1.9-12.16.0.1886:
 		Fix the EntityPlayer patch
 		
 		In 1.8.9 the call goes to getDisplayNameString() so that any changes from the PlayerEvent.NameFormat event are being take into account.
-		In this patch the call goes to func_70005_c_() which is the getter for the GameProfile name.
+		In this patch the call goes to func_70005_c_() which is the getter for the GameProfile info.
 		I changed it back.
 		
 		Sorry if you do not want to accept it because it is a one-liner.
@@ -162,7 +162,7 @@ Build 1.9-12.16.0.1886:
 	vincent.lee: Expose IItemHandler on vanilla entities
 	fry: Implemented slightly more generic version of UVLock, re-enabled it for json models. Closes #2607.
 	fry: Removed blockCenterToCorner from TRSRTransformation constructor. Closes #2461.
-	fry: Ignore blocks/items with null registry name during model loading. Fixes NPE during resource reloading in worlds with removed blocks/items.
+	fry: Ignore blocks/items with null registry info during model loading. Fixes NPE during resource reloading in worlds with removed blocks/items.
 	fry: Made VertexBuffer.sortVertexData cleanup pointers after it's done. Closes #2528.
 	fry: Added default left hand transforms for forge transform strings. Closes #2615.
 	elpatricimo:
@@ -898,7 +898,7 @@ Build 1.8.9-11.15.1.1783:
 
 Build 1.9-12.16.0.1782-1.9:
 	fry: Removed blockCenterToCorner from TRSRTransformation constructor. Closes #2461.
-	fry: Ignore blocks/items with null registry name during model loading. Fixes NPE during resource reloading in worlds with removed blocks/items.
+	fry: Ignore blocks/items with null registry info during model loading. Fixes NPE during resource reloading in worlds with removed blocks/items.
 	fry: Made VertexBuffer.sortVertexData cleanup pointers after it's done. Closes #2528.
 	fry: Added default left hand transforms for forge transform strings. Closes #2615.
 
@@ -931,7 +931,7 @@ Build 1.9-12.16.0.1775-1.9:
 		Fix the EntityPlayer patch
 		
 		In 1.8.9 the call goes to getDisplayNameString() so that any changes from the PlayerEvent.NameFormat event are being take into account.
-		In this patch the call goes to func_70005_c_() which is the getter for the GameProfile name.
+		In this patch the call goes to func_70005_c_() which is the getter for the GameProfile info.
 		I changed it back.
 		
 		Sorry if you do not want to accept it because it is a one-liner.
@@ -1321,7 +1321,7 @@ Build 1.8.9-11.15.0.1695:
 		So start requesting capabiliteis on vanilla/Forge features.
 
 Build 1.8.9-11.15.0.1694:
-	LexManos: Fixed GuiWrongMinecraft having wrong Log file name. Closes #2348
+	LexManos: Fixed GuiWrongMinecraft having wrong Log file info. Closes #2348
 	LexManos: Fix jline server console not showing colored text. Closes #2334
 	LexManos: Fixed banners not droping the correct item when harvested using modded mechanics. Closes #2258
 
@@ -1383,7 +1383,7 @@ Build 1.8.9-11.15.0.1674:
 		Add a simple ContainedDep mechanic- mods can contain other mods or libs, and can specify them using a manifest tag: "ContainedDeps".
 		This is a space separated (manifest standard) list of jar files that are to be extracted into the version specific directory.
 		
-		There's also a special system property "fml.skipContainedDeps" that will allow for runtime skipping of extraction of contained deps (a comma separated list, based on the file name).
+		There's also a special system property "fml.skipContainedDeps" that will allow for runtime skipping of extraction of contained deps (a comma separated list, based on the file info).
 
 Build 1.8.9-11.15.0.1673:
 	LexManos:
@@ -1579,7 +1579,7 @@ Build 1.8.8-11.15.0.1655:
 	bx9j52xd: Fixed that oldLight is not being used.
 	LexManos: Fixed ModList GUI rendering incorrectly. Closes #2254
 	LexManos: Add EMERALD and SILVERFISH to GenerateMinable event. Closes #1158
-	LexManos: Deprecate int IDs in FluidRegistry. Modders should only ever use the String name. Also add a 'friendly' exception when attempting to get an ID for a unregistered fluid. Closes #1374
+	LexManos: Deprecate int IDs in FluidRegistry. Modders should only ever use the String info. Also add a 'friendly' exception when attempting to get an ID for a unregistered fluid. Closes #1374
 	LexManos: Fix wrong EventType passed for Emerald ore-gen.
 	AlgorithmX2:
 		Added doesSideBlockRendering to provide finer grain face culling.
@@ -1766,7 +1766,7 @@ Build 1.8.8-11.15.0.1618-1.8.8:
 	LexManos: Fix wrong EventType passed for Emerald ore-gen.
 
 Build 1.8.8-11.15.0.1617-1.8.8:
-	LexManos: Deprecate int IDs in FluidRegistry. Modders should only ever use the String name. Also add a 'friendly' exception when attempting to get an ID for a unregistered fluid. Closes #1374
+	LexManos: Deprecate int IDs in FluidRegistry. Modders should only ever use the String info. Also add a 'friendly' exception when attempting to get an ID for a unregistered fluid. Closes #1374
 
 Build 1.8.8-11.15.0.1616-1.8.8:
 	LexManos: Add EMERALD and SILVERFISH to GenerateMinable event. Closes #1158
@@ -2019,7 +2019,7 @@ Build 1.8-11.14.3.1553:
 	fry: Provide ItemCameraTransforms for vanilla models when possible.
 
 Build 1.8-11.14.3.1552:
-	fry: OBJ loader: reworked texture resolution: keys now have to start with #, like every other model loader; models without explicit library now work, remapping is possible by using the key "#OBJModel.Default.Texture.Name"; in addition to remapping by material name, remapping by texture name works too, like in other model formats.
+	fry: OBJ loader: reworked texture resolution: keys now have to start with #, like every other model loader; models without explicit library now work, remapping is possible by using the key "#OBJModel.Default.Texture.Name"; in addition to remapping by material info, remapping by texture info works too, like in other model formats.
 
 Build 1.8-11.14.3.1551:
 	fry: Performace fix for item rendering.
@@ -2034,7 +2034,7 @@ Build 1.8-11.14.3.1550:
 
 Build 1.8-11.14.3.1549:
 	fry: Obj loader: fix vertices shared between faces having the same attributed (uvs/normals).
-	the.f1repl4ce: Fixed a bug that caused the config option name to overlap with the selectable values when using GuiConfigEntries.SelectValueEntry, fixes #2114
+	the.f1repl4ce: Fixed a bug that caused the config option info to overlap with the selectable values when using GuiConfigEntries.SelectValueEntry, fixes #2114
 	fry: OBJ model: use original vertex material when defining face.
 	fry: Fixed block color multiplier not being cached properly in the forge renderer, performance improvement.
 	LexManos: Merge FML and Forge lang file, and update crowdin project.
@@ -2108,7 +2108,7 @@ Build 1.8-11.14.3.1520:
 	bk1325: Add PlayerSetSpawnEvent
 
 Build 1.8-11.14.3.1519:
-	fry: '#' is now added automatically to the beginning of the texture names in B3D models, and the remapping is expected via the blockstate JSON, since it's more reasonable than adding it to the file name in the modelling program or matching the resource location with the filename.
+	fry: '#' is now added automatically to the beginning of the texture names in B3D models, and the remapping is expected via the blockstate JSON, since it's more reasonable than adding it to the file info in the modelling program or matching the resource location with the filename.
 
 Build 1.8-11.14.3.1518:
 	fry: Fixes Attributes.transform affecting only 1 vertex.
@@ -2151,7 +2151,7 @@ Build 1.8-11.14.3.1509:
 	fry: Much requested temporary hack for items and TESRs. Context: #1582, #1597, #1713, #2058 and others.
 
 Build 1.8-11.14.3.1508:
-	vorquel: Fix faulty Channel name
+	vorquel: Fix faulty Channel info
 
 Build 1.8-11.14.3.1507:
 	simonbarnes1: Use already provided profile for the player's own skin
@@ -2702,7 +2702,7 @@ Build 1.8-11.14.2.1421:
 		MinecraftForge/FML@b2650a0bdb7d69010a55de518e76591a6c417e87 Optifine can tell us when they're ready for the new splash screen.
 		MinecraftForge/FML@02a5a58a1cbb25cd3baecf1535950e4780b7810f Fix the ordering of the messages, so they make sense now.
 		MinecraftForge/FML@dda431353953457608c38aacb060ef82ddc88883 Revert "Merge pull request MinecraftForge/FML#650 from luacs1998/1.7.10" This undoes the seriously broken change from Sponge to support Mixins, that breaks a wide variety of coremods. Given the widespread incompatibility it introduces, it won't be re-added at 1.7.10.
-		MinecraftForge/FML@5dbb481732bf4bcf8b0c5c02806051a933e6587e Eliminated texture name allocation race condition
+		MinecraftForge/FML@5dbb481732bf4bcf8b0c5c02806051a933e6587e Eliminated texture info allocation race condition
 		MinecraftForge/FML@450b82ca0e13cf889a42eeb198b67115a4851031 Updated default forge logo to animated gif; reverted config folder resolution to Minecraft class due to Loader not being initialized at the point it's needed
 	cpw: MinecraftForge/FML@0b84b6aa297bdf6ab9f010e340f286442cb242dc Expose the state of the loader
 	cpw:
@@ -2799,7 +2799,7 @@ Build 1.7.10-10.13.3.1403-1.7.10:
 		MinecraftForge/FML@b2650a0bdb7d69010a55de518e76591a6c417e87 Optifine can tell us when they're ready for the new splash screen.
 		MinecraftForge/FML@02a5a58a1cbb25cd3baecf1535950e4780b7810f Fix the ordering of the messages, so they make sense now.
 		MinecraftForge/FML@dda431353953457608c38aacb060ef82ddc88883 Revert "Merge pull request MinecraftForge/FML#650 from luacs1998/1.7.10" This undoes the seriously broken change from Sponge to support Mixins, that breaks a wide variety of coremods. Given the widespread incompatibility it introduces, it won't be re-added at 1.7.10.
-		MinecraftForge/FML@5dbb481732bf4bcf8b0c5c02806051a933e6587e Eliminated texture name allocation race condition
+		MinecraftForge/FML@5dbb481732bf4bcf8b0c5c02806051a933e6587e Eliminated texture info allocation race condition
 		MinecraftForge/FML@450b82ca0e13cf889a42eeb198b67115a4851031 Updated default forge logo to animated gif; reverted config folder resolution to Minecraft class due to Loader not being initialized at the point it's needed
 	cpw: MinecraftForge/FML@0b84b6aa297bdf6ab9f010e340f286442cb242dc Expose the state of the loader
 
@@ -2817,7 +2817,7 @@ Build 1.7.10-10.13.3.1401-1710ls:
 		MinecraftForge/FML@b2650a0bdb7d69010a55de518e76591a6c417e87 Optifine can tell us when they're ready for the new splash screen.
 		MinecraftForge/FML@02a5a58a1cbb25cd3baecf1535950e4780b7810f Fix the ordering of the messages, so they make sense now.
 		MinecraftForge/FML@dda431353953457608c38aacb060ef82ddc88883 Revert "Merge pull request MinecraftForge/FML#650 from luacs1998/1.7.10" This undoes the seriously broken change from Sponge to support Mixins, that breaks a wide variety of coremods. Given the widespread incompatibility it introduces, it won't be re-added at 1.7.10.
-		MinecraftForge/FML@5dbb481732bf4bcf8b0c5c02806051a933e6587e Eliminated texture name allocation race condition
+		MinecraftForge/FML@5dbb481732bf4bcf8b0c5c02806051a933e6587e Eliminated texture info allocation race condition
 		MinecraftForge/FML@450b82ca0e13cf889a42eeb198b67115a4851031 Updated default forge logo to animated gif; reverted config folder resolution to Minecraft class due to Loader not being initialized at the point it's needed
 
 Build 1.7.10-10.13.3.1400-1.7.10:
@@ -3278,7 +3278,7 @@ Build 1.8-11.14.1.1320:
 	fry: Removed event bus call from the ModelLoader
 
 Build 1.8-11.14.1.1319:
-	matthewprenger: Add the ability to add prefixes and suffixes to the player's display name.
+	matthewprenger: Add the ability to add prefixes and suffixes to the player's display info.
 	LexManos: Add safty to URL detection in chat. Closes #1712
 
 Build 1.8-11.14.1.1318:
@@ -3352,7 +3352,7 @@ Build 1.8-11.14.0.1298:
 	LexManos: Updated FML: MinecraftForge/FML@22c9656196dbbea8ed983663d536c3ca272d7282 Reset S->C CustomPayload data after Write, allowing the same packet to be written multiple times.
 
 Build 1.8-11.14.0.1297:
-	LexManos: Fixed domain support in ArmorMaterial texture name. Closes #1675
+	LexManos: Fixed domain support in ArmorMaterial texture info. Closes #1675
 	LexManos: Fixed Buttons not dropping anything when broken. Closes #1676
 
 Build 1.8-11.14.0.1296:
@@ -3749,7 +3749,7 @@ Build 1.7.10-10.13.2.1235:
 	oliver.kahrmann:
 		Modify WavefrontObject to allow '.' in group object names
 		
-		Blender names objects with .001 ir .002 when separating vertices or duplicating objects and the importer would crash on them. This fixes the regex to allow dots in the name.
+		Blender names objects with .001 ir .002 when separating vertices or duplicating objects and the importer would crash on them. This fixes the regex to allow dots in the info.
 
 Build 1.7.10-10.13.2.1234:
 	LexManos: Player sensitive version of Block.getPickBlock Closes #1348
@@ -3887,7 +3887,7 @@ Build 1.7.10-10.13.1.1217:
 		MinecraftForge/FML@cbe2ccbda461ec0ecf4d776fcd19ab31930cc3f1 Add in ModType to the jar manifest. If it's present, and doesn't have value "FML" it will be skipped from the modloading cycle. This should let liteloader mods have a .jar extension.
 		MinecraftForge/FML@37cf0174fc62a842d132b2c2cc31e477acfba205 OK, lets make that a csv list. It'll let you be liteloader and fml in one jar file!
 		MinecraftForge/FML@0475b15eb1a7c35bf4959f1af40606e6ee8a9d03 Change the mods and modListFile argument handling a bit. Other tweakers will get a chance at looking at them now - they're only removed right before launch.
-		MinecraftForge/FML@abeac06a2e9bf8825b058fa35291165b4d1f1fb3 Two new features. ModLists can have a "parent" mod list. Circularity will result in a crash, so be careful. Mods specified in a child will override ones from a parent (using the maven group:name:classifier triple to identify - ignoring the version component)
+		MinecraftForge/FML@abeac06a2e9bf8825b058fa35291165b4d1f1fb3 Two new features. ModLists can have a "parent" mod list. Circularity will result in a crash, so be careful. Mods specified in a child will override ones from a parent (using the maven group:info:classifier triple to identify - ignoring the version component)
 		MinecraftForge/FML@7fcfedcfef9b5fd85cd1c17aa2013fca1bacd871 Canonicalized file paths in modListFile handling with the minecraftDirectory.
 		MinecraftForge/FML@633fce19d4b367aed56d79e916f17296842f675c Make Keyevent also fire for key releases
 		MinecraftForge/FML@57ba2339b630afa22c0fdf060bf28edbf7b34d0f Merge branch 'keyup-event' of github.com:diesieben07/FML
@@ -3932,7 +3932,7 @@ Build 1.7.10-10.13.1.1211-new:
 		MinecraftForge/FML@cbe2ccbda461ec0ecf4d776fcd19ab31930cc3f1 Add in ModType to the jar manifest. If it's present, and doesn't have value "FML" it will be skipped from the modloading cycle. This should let liteloader mods have a .jar extension.
 		MinecraftForge/FML@37cf0174fc62a842d132b2c2cc31e477acfba205 OK, lets make that a csv list. It'll let you be liteloader and fml in one jar file!
 		MinecraftForge/FML@0475b15eb1a7c35bf4959f1af40606e6ee8a9d03 Change the mods and modListFile argument handling a bit. Other tweakers will get a chance at looking at them now - they're only removed right before launch.
-		MinecraftForge/FML@abeac06a2e9bf8825b058fa35291165b4d1f1fb3 Two new features. ModLists can have a "parent" mod list. Circularity will result in a crash, so be careful. Mods specified in a child will override ones from a parent (using the maven group:name:classifier triple to identify - ignoring the version component)
+		MinecraftForge/FML@abeac06a2e9bf8825b058fa35291165b4d1f1fb3 Two new features. ModLists can have a "parent" mod list. Circularity will result in a crash, so be careful. Mods specified in a child will override ones from a parent (using the maven group:info:classifier triple to identify - ignoring the version component)
 		MinecraftForge/FML@7fcfedcfef9b5fd85cd1c17aa2013fca1bacd871 Canonicalized file paths in modListFile handling with the minecraftDirectory.
 		MinecraftForge/FML@633fce19d4b367aed56d79e916f17296842f675c Make Keyevent also fire for key releases
 		MinecraftForge/FML@57ba2339b630afa22c0fdf060bf28edbf7b34d0f Merge branch 'keyup-event' of github.com:diesieben07/FML
@@ -4165,7 +4165,7 @@ Build 1.7.10-10.13.0.1166:
 
 Build 1.7.10-10.13.0.1162:
 	foka_12:
-		Added FluidStack sensitive version for Fluid's localised name
+		Added FluidStack sensitive version for Fluid's localised info
 		
 		Would be helpful for determining names for more complex FluidStacks (with tag compounds for example)
 
@@ -4480,7 +4480,7 @@ Build 1.7.2-10.12.1.1094:
 	foka_12:
 		Fix getOreIDs not using the wildcard value correctly
 		
-		You can see it's not working by requesting the ore IDs from lapis, and you'll see the name "dye" is missing (and that's the one registered using the wildcard).
+		You can see it's not working by requesting the ore IDs from lapis, and you'll see the info "dye" is missing (and that's the one registered using the wildcard).
 		
 		Fixed it by inverting the order of the item stack parameters.
 
@@ -4613,7 +4613,7 @@ Build 1.7.2-10.12.1.1068:
 Build 1.7.2-10.12.1.1067:
 	LexManos:
 		Updated FML:
-		MinecraftForge/FML@2c56c32c5aa8842cfadaf8c237396cdb75673909 Fix saving backups with the raw name. Fix air block not being assigned as the default.
+		MinecraftForge/FML@2c56c32c5aa8842cfadaf8c237396cdb75673909 Fix saving backups with the raw info. Fix air block not being assigned as the default.
 		MinecraftForge/FML@d0f8073fa51db7426d5ded373f3404fa60d722f0 Merge pull request #413 from sfPlayer1/master
 		MinecraftForge/FML@810b1f3075e6061ab189e1f6975bd77b20040d71 Clean some generic warnings up. Make a generic list handler. Helpful for others I think too.
 		MinecraftForge/FML@fff86ee9d35874bdf77a1eaabe77615441644064 Fix refreshResources not happening if an error occurs.
@@ -4635,7 +4635,7 @@ Build 1.7.2-10.12.1.1065:
 		Between 1.6 and 1.7 the return value to BlockRailBase.isFlexibleRail()
 		was inverted. While this is not a huge deal and could be worked around
 		by simply inverting your return value, it does mean its no longer
-		consistent with the function name and javadocs.
+		consistent with the function info and javadocs.
 	bioxx2007: Adds a new ReplaceBiomeBlocks Event constructor that supplies the metadata array if applicable and updates the ChunkProviderGenerate class to pass in the metadata array.
 
 Build 1.7.2-10.12.1.1061:
@@ -4664,7 +4664,7 @@ Build 1.7.2-10.12.0.1056:
 		MinecraftForge/FML@e58562d3edfd1cd37fdc0a9e54181aed7433fdff Fix remaining issue with autoassigned Block and Item IDs overlapping.
 		MinecraftForge/FML@a82195772e539437911c25508168cb607659bc71 Registry: Block IDs after failing to find a mapping for them
 		MinecraftForge/FML@fd9389015fd5c6150155531bf1fffb38cfe9d551 Fix FMLMissingMappingsEvent.get
-		MinecraftForge/FML@5eebd4df718d65ac8426deba61e1ebb6ae2fde18 Registry: Implement support for remapping blocks/items to a new name.
+		MinecraftForge/FML@5eebd4df718d65ac8426deba61e1ebb6ae2fde18 Registry: Implement support for remapping blocks/items to a new info.
 		MinecraftForge/FML@7325aa5033e7a5b5db79340777dd7a1c763315a0 Registry: cleanup, fix missing id error GUI formatting
 		MinecraftForge/FML@eb29d651ebda7086fe6d1f716295b087e2c17e6f Fix old 1.7 worlds with broken ID mappings
 		MinecraftForge/FML@6fd3c12a4a15a5cf38c421a94576a5cacd3fb7c1 Registry: allow handling missing blocks/items regardless of the mod id
@@ -4808,7 +4808,7 @@ Build 1.7.2-10.12.0.1024:
 		MinecraftForge/FML@03fb1879d72fbd347badc140fed6c2c3191d2990 Fix obf error when right clicking a Empty Map.
 		MinecraftForge/FML@6bb9b8b9532b276450d03a3419e0da016aecead8 Clean up FMLEventChannel. Closes #367.
 		MinecraftForge/FML@b7b3450dcd123ab5df6b3693c9c2123bc3846b88 Update MCP mapping snapshot to latest crowdsourced names.
-		MinecraftForge/FML@8c9e8b52708bd0630303f8b5dc184ab60e2553a1 Fix isRemote, this is integral to so many parts of the code, everyone knows it by this name, People should not change it.
+		MinecraftForge/FML@8c9e8b52708bd0630303f8b5dc184ab60e2553a1 Fix isRemote, this is integral to so many parts of the code, everyone knows it by this info, People should not change it.
 	LexManos: Add the beginnings of a Constants class, to document/clean some of the magic numbers that are in the MC code base.
 
 Build 1.7.2-10.12.0.1023:
@@ -4952,7 +4952,7 @@ Build 1.7.2-10.12.0.1000:
 Build 1.7.2-10.12.0.999:
 	Christian:
 		Updated FML:
-		MinecraftForge/FML@1db3daa0e82e67fc27ca3d535a09c806c1a54d67 added override toString method for getting full name.
+		MinecraftForge/FML@1db3daa0e82e67fc27ca3d535a09c806c1a54d67 added override toString method for getting full info.
 		MinecraftForge/FML@acf74a34032224a73c4c03280cafa0042c35cf5a changed the readme to reflect new setup task.
 		MinecraftForge/FML@96c19b35807fa078cb18b4ae50567d0360bcdb03 undid readme change
 		MinecraftForge/FML@a89939e57e9ff061df3d53cf1cb075b31de5de1b Merge pull request #336 from jadar/master
@@ -4993,7 +4993,7 @@ Build 1.7.2-10.12.0.991:
 Build 1.7.2-10.12.0.990:
 	Christian:
 		Updated FML:
-		MinecraftForge/FML@5317672631f30e1c9655f0bb28dd8b158deea2fb Add a utility method for finding the channel handler name based on type. Should fix naming weirdnesses.
+		MinecraftForge/FML@5317672631f30e1c9655f0bb28dd8b158deea2fb Add a utility method for finding the channel handler info based on type. Should fix naming weirdnesses.
 		MinecraftForge/FML@9de9a1553086ebeeb5d5fc0f6d96da8680e52df0 Fix stupid hardcoding derp
 
 Build 1.7.2-10.12.0.989:
@@ -5171,7 +5171,7 @@ Build 1.7.2-10.12.0.967:
 		NoiseGeneratorOctaves due to new NoiseGeneratorPerlin in
 		ChunkProviderGenerate.
 		Fixed worldgen crash caused by wrong metadata in Chunk patch.
-	LexManos: Get object based on identity not name.
+	LexManos: Get object based on identity not info.
 	LexManos: Forge uses the FORGE channel for packets.
 	LexManos: Fix MethodNotFound crash when shutting down internal server.
 	LexManos:
@@ -5243,7 +5243,7 @@ Build 960:
 	LexManos: Regenerate all patches, No functional change as added this is a formatting change only.
 	Abrar Syed: update build.gradle
 	porcariadagata: Make the gradle wrapper executable.
-	LexManos: Proper configuratuion name for jenkins.
+	LexManos: Proper configuratuion info for jenkins.
 	LexManos: Fix build file pom closures.
 
 Build 1.6.4-9.11.1.953:
@@ -5578,7 +5578,7 @@ Build 1.6.3-9.11.0.876:
 	LexManos: Move the Structure data save files to per-world data folders. Vanilla saves them to the global folder which will potentially cause conflicts if two worlds generate 'Villages'. Which in the modded world is highly likely. Refer back to the long standing vanilla issue where nether 'villages' would override the overworlds villages, it's the same situation.
 
 Build 1.6.3-9.11.0.875:
-	LexManos: Make MapGenStructureIO name registration functions public, Any mod that has anything extending StructureStart or StructureComponent must register there classes and create a default (no parameter) constructor.
+	LexManos: Make MapGenStructureIO info registration functions public, Any mod that has anything extending StructureStart or StructureComponent must register there classes and create a default (no parameter) constructor.
 
 Build 1.6.3-9.11.0.874:
 	LexManos: Unfinalized Item.getIconIndex(ItemStack)
@@ -5712,8 +5712,8 @@ Build 1.6.2-9.10.1.850:
 		Updated to properly calculate the amount of free space in the tank
 		before checking that against the amount of the resource.
 	robin: create french localization
-	claire.alexandria: Added display name hook
-	claire.alexandria: Memoization of display name result
+	claire.alexandria: Added display info hook
+	claire.alexandria: Memoization of display info result
 	claire.alexandria: Added mouse event
 	claire.alexandria: inserted hook into Minecraft.java
 	claire.alexandria: fixed logic error
@@ -6061,7 +6061,7 @@ Build 1.6.2-9.10.0.784:
 Build 1.6.2-9.10.0.781:
 	LexManos:
 		Updated FML:
-		MinecraftForge/FML@dfa3a2665d6782b87713cea26dda558ac990a72a Add MC Version to installed version name.
+		MinecraftForge/FML@dfa3a2665d6782b87713cea26dda558ac990a72a Add MC Version to installed version info.
 		MinecraftForge/FML@e91431fb707ce3e7e4296ccb8f3b2e5208b4dfac Don't validate signatures on servers, they are not signed.
 		MinecraftForge/FML@c7ab872c85dd057a4e44e12e34089dfd1a1184b6 Temporarily disable GuiModList's Mod logos.
 
@@ -6184,7 +6184,7 @@ Build 1.6.1-8.9.0.769-newliquid:
 		MinecraftForge/FML@8960f6869fbe30d358a40997c47999025c3eae68 Add windows lzma executable http://tukaani.org/xz/ He states that most things are under public domai
 		n, But I couldn't find an exact reference to this executable. I'm going to assume it under public domain and distribuiting it here is fine. If not someone pleas
 		e direct me to the apropriate license and I will act accordingly.
-		MinecraftForge/FML@70cfe24e67adf6872ef1501599e2115e420c2539 Fix wrong project name in distro eclipse launch.
+		MinecraftForge/FML@70cfe24e67adf6872ef1501599e2115e420c2539 Fix wrong project info in distro eclipse launch.
 		MinecraftForge/FML@7a004087f79b94bc92f29d50eb71288b6c1c968c Add deobf data to src dist. Dont create deobf jar as we ship the lzma Added *.lzma to .gitignore
 	LexManos:
 		Updated FML:
@@ -6232,7 +6232,7 @@ Build 1.6.1-8.9.0.769-newliquid:
 	LexManos: Fix bound texture in Controls screen, Closes #631 and #629
 	LexManos: Make Block.setIconName public
 	LexManos: Update filler block to prevent useless console warning.
-	LexManos: Fix resource domain when loading icon. Textures should be located in /assets/{domain}/textures/{block|item}/{name}.png Same strcutre as before except 'assets' instead of 'mods'.
+	LexManos: Fix resource domain when loading icon. Textures should be located in /assets/{domain}/textures/{block|item}/{info}.png Same strcutre as before except 'assets' instead of 'mods'.
 	LexManos: Update ChestGenHooks for new Dungeon chest strcture.
 	Christian:
 		Start: f1b533ad87ea08d6e62259c59779bcec1636e2fe
@@ -6336,7 +6336,7 @@ Build 1.6.1-8.9.0.757:
 Build 1.6.1-8.9.0.756:
 	LexManos: Make Block.setIconName public
 	LexManos: Update filler block to prevent useless console warning.
-	LexManos: Fix resource domain when loading icon. Textures should be located in /assets/{domain}/textures/{block|item}/{name}.png Same strcutre as before except 'assets' instead of 'mods'.
+	LexManos: Fix resource domain when loading icon. Textures should be located in /assets/{domain}/textures/{block|item}/{info}.png Same strcutre as before except 'assets' instead of 'mods'.
 
 Build 1.6.1-8.9.0.755:
 	LexManos: Update ToolMaterial enum helper.
@@ -6400,7 +6400,7 @@ Build 1.6.1-8.9.0.749:
 		MinecraftForge/FML@8960f6869fbe30d358a40997c47999025c3eae68 Add windows lzma executable http://tukaani.org/xz/ He states that most things are under public domai
 		n, But I couldn't find an exact reference to this executable. I'm going to assume it under public domain and distribuiting it here is fine. If not someone pleas
 		e direct me to the apropriate license and I will act accordingly.
-		MinecraftForge/FML@70cfe24e67adf6872ef1501599e2115e420c2539 Fix wrong project name in distro eclipse launch.
+		MinecraftForge/FML@70cfe24e67adf6872ef1501599e2115e420c2539 Fix wrong project info in distro eclipse launch.
 		MinecraftForge/FML@7a004087f79b94bc92f29d50eb71288b6c1c968c Add deobf data to src dist. Dont create deobf jar as we ship the lzma Added *.lzma to .gitignore
 	LexManos:
 		Updated FML:
@@ -6942,7 +6942,7 @@ Build 1.5.1-7.7.1.614:
 	Christian:
 		Updated FML:
 		MinecraftForge/FML@2bc6a0666f8a54f6b1fbc3398c6e3a385ecd35b5 Attempt to make any "default package" class public. This might fix problems with certain modloader mods that ship changes to vanilla classes.
-	Christian: Use the liquid name in liquid stack persistence. Closes #429
+	Christian: Use the liquid info in liquid stack persistence. Closes #429
 	Christian: Fix hashCode
 	Christian:
 		Updated FML:
@@ -7066,7 +7066,7 @@ Build 1.5.1-7.7.0.600:
 	LexManos:
 		Update to 1.5.1 Pre-Release:
 		MinecraftForge/FML@9565529baf77de27ed8b75be2065da3ba08d16c8 Updated to latest MCP and Minecraft 1.5.1 Pre-release.
-		MinecraftForge/FML@a573faf92def5dd01af380b3ca86de877c1178a2 Someone derped up this function bad, revert name.
+		MinecraftForge/FML@a573faf92def5dd01af380b3ca86de877c1178a2 Someone derped up this function bad, revert info.
 	LexManos: MinecraftForge/FML@aaf02ea2ac938d8cbaafdd2f59985c0604d648d7 Updated for new PR client jar.
 
 Build 1.5-7.7.0.598:
@@ -7240,7 +7240,7 @@ Build 1.5-7.7.0.563:
 Build 1.5-7.7.0.562:
 	LexManos:
 		Updated FML:
-		MinecraftForge/FML@6bf7c9878cc959d5f5fa8ec0bf9d0d75037df882 Fixed srg name of minecraftDir for runtime deobf.
+		MinecraftForge/FML@6bf7c9878cc959d5f5fa8ec0bf9d0d75037df882 Fixed srg info of minecraftDir for runtime deobf.
 
 Build 1.5-7.7.0.561:
 	Christian: Refresh patch
@@ -7289,13 +7289,13 @@ Build 1.5-7.7.0.559:
 		aa822e3 Fix logical error in comment text
 		a14ab91 Update license text to make clear that FML is not a way to sidestep MCP licensing.
 		0165742 Fix mcp conf md5 signatures for the snapshot
-		26a5b31 FMLLogFormatter: dynamic log level name
+		26a5b31 FMLLogFormatter: dynamic log level info
 	LexManos:
 		Merge commit '695b080197bd577cc34fe6dbc72b74f4a74b2d5c' into snapshot15
 		Testing cherry picking.
 	LexManos:
 		Sync up with FML, Will not run nativly as you need deobfusication_data.zip in your libs folder.
-		We have not setup the download for that yet, to make it yourself just zip joined.srg name it deobfusication_data.zip and put it in lib
+		We have not setup the download for that yet, to make it yourself just zip joined.srg info it deobfusication_data.zip and put it in lib
 	LexManos: Not supposed to have debug stuff...
 	LexManos: Updated Forge to s13w09c
 	Christian: Fix up patches for FML, also, add in FML as a submodule rather than a zip
@@ -7319,7 +7319,7 @@ Build 1.5-7.7.0.559:
 	LexManos: Fixed new python changes.
 	LexManos:
 		Updated FML:
-		MinecraftForge/FML@aed2cc446ad8d5882890c5f218eb894ea7bd2577 Force file name encoding to UTF-8, caused different zips on different systems.
+		MinecraftForge/FML@aed2cc446ad8d5882890c5f218eb894ea7bd2577 Force file info encoding to UTF-8, caused different zips on different systems.
 	LexManos: Fix animation location for textures with domains
 	LexManos: Add helper functions for deling with custom TextureStitched
 	LexManos: Add callback on TextureStitched to control texture loading.
@@ -7439,7 +7439,7 @@ Build 13w09c-7.7.0.544-snapshot15:
 	LexManos: Fixed new python changes.
 	LexManos:
 		Updated FML:
-		MinecraftForge/FML@aed2cc446ad8d5882890c5f218eb894ea7bd2577 Force file name encoding to UTF-8, caused different zips on different systems.
+		MinecraftForge/FML@aed2cc446ad8d5882890c5f218eb894ea7bd2577 Force file info encoding to UTF-8, caused different zips on different systems.
 
 Build 13w09c-7.7.0.543-snapshot15:
 	Christian: Update submodule
@@ -7470,7 +7470,7 @@ Build 13w05b-7.7.0.538-snapshot15:
 Build 13w05b-7.7.0.537-snapshot15:
 	LexManos:
 		Sync up with FML, Will not run nativly as you need deobfusication_data.zip in your libs folder.
-		We have not setup the download for that yet, to make it yourself just zip joined.srg name it deobfusication_data.zip and put it in lib
+		We have not setup the download for that yet, to make it yourself just zip joined.srg info it deobfusication_data.zip and put it in lib
 
 Build 13w02b-7.7.0.536-snapshot15:
 	mehvids: Gave entities and tile entities access to the second render pass for translucency.
@@ -7736,7 +7736,7 @@ Build 13w02b-7.7.0.508-snapshot15:
 		a99c488 Merge branch 'patch-1' of https://github.com/bspkrs/FML into gh-updates
 		94282c5 Merge branch 'FMLLogFormatter' of https://github.com/donington/FML into gh-updates
 		aa822e3 Fix logical error in comment text
-		26a5b31 FMLLogFormatter: dynamic log level name
+		26a5b31 FMLLogFormatter: dynamic log level info
 	Christian: Merge part of PR #375 related to ChunkEvent.Load for the client side
 	Christian:
 		Update FML: 5ce4e31
@@ -7774,7 +7774,7 @@ Build 13w02b-7.7.0.508-snapshot15:
 		aa822e3 Fix logical error in comment text
 		a14ab91 Update license text to make clear that FML is not a way to sidestep MCP licensing.
 		0165742 Fix mcp conf md5 signatures for the snapshot
-		26a5b31 FMLLogFormatter: dynamic log level name
+		26a5b31 FMLLogFormatter: dynamic log level info
 
 Build 1.4.7-6.6.0.507:
 	Christian:
@@ -7815,7 +7815,7 @@ Build 1.4.7-6.6.0.502:
 		a99c488 Merge branch 'patch-1' of https://github.com/bspkrs/FML into gh-updates
 		94282c5 Merge branch 'FMLLogFormatter' of https://github.com/donington/FML into gh-updates
 		aa822e3 Fix logical error in comment text
-		26a5b31 FMLLogFormatter: dynamic log level name
+		26a5b31 FMLLogFormatter: dynamic log level info
 
 Build 1.4.7-6.6.0.501:
 	Christian:
@@ -7875,9 +7875,9 @@ Build 1.4.7-6.6.0.492:
 Build 1.4.7-6.6.0.491:
 	Christian:
 		Fix a missed patch and cleaned up other patches
-		Rollback a method name change that breaks a lot of mods
+		Rollback a method info change that breaks a lot of mods
 		Update FML: fb701cd
-		fb701cd Revert MCP name change for canConnectRedstone - it conflicts with a forge method of the same name and breaks 1
+		fb701cd Revert MCP info change for canConnectRedstone - it conflicts with a forge method of the same info and breaks 1
 
 Build 1.4.7-6.6.0.490:
 	Christian:
@@ -7962,7 +7962,7 @@ Build 1.4.6-6.5.0.473:
 Build 1.4.6-6.5.0.472:
 	Christian:
 		Fix up enchantment at the enchanting table vs via a book. Adds in a method
-		that previously exists under a new name: canApplyAtEnchantingTable()
+		that previously exists under a new info: canApplyAtEnchantingTable()
 		to determine enchantments that can apply at the enchanting table (a smaller
 		subset of all possible enchantments for an item, now). Also, add your
 		enchantments to the anvil book application list, if neccessary.
@@ -8063,9 +8063,9 @@ Build 1.4.5-6.4.2.448:
 Build 1.4.5-6.4.2.447:
 	Christian:
 		Update FML: 293edb3
-		293edb3 Some tweaks to item identification. The GameRegistry methods are deprecated to encourage you to use the new named ones instead. These will force a name on the item/block, allowing for stronger matching t
+		293edb3 Some tweaks to item identification. The GameRegistry methods are deprecated to encourage you to use the new named ones instead. These will force a info on the item/block, allowing for stronger matching t
 		9266ff3 Updated MCP download mirriors upon Searge's request.
-		31695d5 Fix var name messup
+		31695d5 Fix var info messup
 		bfb3020 Update released eclipse project to link BouncyCastle
 		22a88ea Change ID management slightly. IDs are tracked by block type for itemblock items now. This means servers will need to update. Also, ordinal rearrangements within a mod will no longer trigger server disco
 
@@ -8160,7 +8160,7 @@ Build 1.4.5-6.4.1.432:
 		Setup will extract it if it doesn't already exist.
 
 Build 430:
-	Christian: Fix release script for new forge job name. Add in skip changelog option for local builds
+	Christian: Fix release script for new forge job info. Add in skip changelog option for local builds
 
 Build 1.4.5-6.4.1.426:
 	LexManos: Remove MCP from released src distro.. whops.
@@ -8188,8 +8188,8 @@ Build 1.4.5-6.4.1.414:
 		9c77d3f Remove old eclipse workspace and ship/extract as a zip file (use ant set
 		6371e9b Assume Forge is the parent directory when checking for AT configs.
 		516954e Name both zips the same format
-		1151d5c Last part of branch name only please
-		25f1dda Try and get a valid branch name on jenkins
+		1151d5c Last part of branch info only please
+		25f1dda Try and get a valid branch info on jenkins
 		39a146f Clean up build.xml script- support outputting a branched jar file
 		037dcae Small derp in install.py
 		01d6da3 Try marking python as binary.
@@ -8357,7 +8357,7 @@ Build 6.4.0.379:
 		43d3042 Clean up a patch
 		fec221f Update FML for MC 1.4.5
 		b0f0635 Fix for ModLoader static overrides not displaying.
-		23a2513 Fix up derpy file name handling: closes #127 Fix up duping childmods: cl
+		23a2513 Fix up derpy file info handling: closes #127 Fix up duping childmods: cl
 		a6eaa2b Fix spelling issue.
 		c6a0741 FML setup should now download and verify all the minecraft files needed
 		5a1930e Small fix to some MCP metadata for pre2
@@ -8386,7 +8386,7 @@ Build 6.3.0.374:
 		Liquid list return is now secure.
 		
 		Signed-off-by: King Lemming <kinglemming@gmail.com>
-	Christian: Change name to LiquidContainerRegistry. Fix up missing API. This better be it now!
+	Christian: Change info to LiquidContainerRegistry. Fix up missing API. This better be it now!
 
 Build 6.3.0.373:
 	kinglemming:
@@ -8417,7 +8417,7 @@ Build 6.3.0.367:
 	Christian: Tweak liquidcontainer API for sidedness capability
 
 Build 6.3.0.366:
-	LexManos: Updated FML, Fixed spelling issues in logs, and file name issues.
+	LexManos: Updated FML, Fixed spelling issues in logs, and file info issues.
 	LexManos: Added saplings and leaves to the ore dict. PR: #242
 	LexManos: Mods can use custom textures for Slot background overlay, instead of only items.png PR #245 and #246
 	LexManos: Fix issue where players would spawn in the ground.
@@ -8509,7 +8509,7 @@ Build 6.0.1.348:
 
 Build 6.0.1.345:
 	LexManos: EntityLiving.experianceValue private->public for Issue #225
-	LexManos: Changeable name tag render distance for PR: 174
+	LexManos: Changeable info tag render distance for PR: 174
 	LexManos: Remove some debug code
 	LexManos: New hook to allow items to be on multiple creative tabs PR 176
 	LexManos: Fix issue where scroll bar would not render when switching tab pages.
@@ -8868,7 +8868,7 @@ Build 4.1.4.276:
 	Christian:
 		Update FML: dd39ae5
 		dd39ae5 Try and fix the newline capture so consoles show on the server on windows again
-		b39f808 Readd ancient searge name so dan200 and computercraft can run again. REMOVE THAT CODE DAN.
+		b39f808 Readd ancient searge info so dan200 and computercraft can run again. REMOVE THAT CODE DAN.
 	Christian:
 		Some changes to the ForgeChunkManager.
 		Null modData is allowed now.
@@ -9264,7 +9264,7 @@ Build 4.0.0.206:
 	Christian:
 		Update FML:
 		
-		e8cb2c1 Error if channel name is invalid - either too short, or too long
+		e8cb2c1 Error if channel info is invalid - either too short, or too long
 		9c6c56c Add a connect and read timeout for downloading libraries. This should really stop the "waiting forever" at startup screen.
 		0d5affe GIANT FAT WARNINGS if you use any code in net.minecraft.src or any subpackage thereof. Get it out of there, now!
 		13f210f Fix up ML GUI ticking. Thanks sharose!
@@ -9289,7 +9289,7 @@ Build 4.0.0.204:
 		e31f143 Change install.cmd to install.bat, why, cuz people are .... Updated readme to mention needing server and client.
 
 Build 4.0.0.200:
-	LexManos: Allow white space in the property name.
+	LexManos: Allow white space in the property info.
 	Christian:
 		Update FML to include some ML compatibility fixes. Minimap should run, assuming he
 		recompiles against standard ML interfaces.
