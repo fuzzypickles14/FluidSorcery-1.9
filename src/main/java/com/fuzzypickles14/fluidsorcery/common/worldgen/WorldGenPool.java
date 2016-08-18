@@ -35,6 +35,12 @@ public class WorldGenPool {
         else return false;
     }
 
+
+
+
+
+
+
     private boolean checkAreaForLake(World world, BlockPos position)
     {
         for (int xPos = -1; xPos < 4; xPos++)
