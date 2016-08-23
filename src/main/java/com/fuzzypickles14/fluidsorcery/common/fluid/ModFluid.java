@@ -10,6 +10,8 @@ import net.minecraftforge.fluids.Fluid;
 public class ModFluid extends Fluid {
     public ModFluid(String fluidName, ResourceLocation still, ResourceLocation flowing) {
         super(fluidName, still, flowing);
+        setDensity(2000);
+        setViscosity(2000);
     }
 
 

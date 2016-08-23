@@ -1,5 +1,6 @@
 package com.fuzzypickles14.fluidsorcery.common.worldgen;
 
+import com.fuzzypickles14.fluidsorcery.common.blocks.ModBlocks;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -21,6 +22,7 @@ public class ModWorldGenerator implements IWorldGenerator {
         switch (world.provider.getDimension())
         {
             case -1:
+                generateNether(world, rand, blockX, blockZ);
                 break;
             case 0:
                 generateOverworld(world, rand, blockX, blockZ);
@@ -30,16 +32,44 @@ public class ModWorldGenerator implements IWorldGenerator {
         }
     }
 
-    private void generateNether()
-    {}
+    private void generateNether(World world, Random rand, int blockX, int blockZ)
+    {
+
+    }
 
     private void generateOverworld(World world, Random rand, int blockX, int blockZ)
     {
-        WorldGenerator scorchGen = new ModWorldGen();
+        GenScorch(world, rand, blockX, blockZ);
+        GenMist(world, rand, blockX, blockZ);
+        GenAer(world, rand, blockX, blockZ);
+        GenTerre(world, rand, blockX, blockZ);
+
+    }
+
+    private void GenScorch(World world, Random rand, int blockX, int blockZ) {
+        WorldGenerator scorchGen = new ModWorldGen(ModBlocks.scorch);
         int randX = blockX + rand.nextInt(16);
         int randZ = blockZ + rand.nextInt(16);
         scorchGen.generate(world, rand, new BlockPos(randX, findGround(world, randX, randZ), randZ));
+    }
 
+    private void GenMist(World world, Random rand, int blockX, int blockZ) {
+        WorldGenerator scorchGen = new ModWorldGen(ModBlocks.mist);
+        int randX = blockX + rand.nextInt(16);
+        int randZ = blockZ + rand.nextInt(16);
+        scorchGen.generate(world, rand, new BlockPos(randX, findGround(world, randX, randZ), randZ));
+    }
+    private void GenAer(World world, Random rand, int blockX, int blockZ) {
+        WorldGenerator scorchGen = new ModWorldGen(ModBlocks.aer);
+        int randX = blockX + rand.nextInt(16);
+        int randZ = blockZ + rand.nextInt(16);
+        scorchGen.generate(world, rand, new BlockPos(randX, findGround(world, randX, randZ), randZ));
+    }
+    private void GenTerre(World world, Random rand, int blockX, int blockZ) {
+        WorldGenerator scorchGen = new ModWorldGen(ModBlocks.terre);
+        int randX = blockX + rand.nextInt(16);
+        int randZ = blockZ + rand.nextInt(16);
+        scorchGen.generate(world, rand, new BlockPos(randX, findGround(world, randX, randZ), randZ));
     }
 
     private int findGround(World world, int x, int z)
@@ -52,6 +82,5 @@ public class ModWorldGenerator implements IWorldGenerator {
         }
         y--;
         return y;
-
     }
 }

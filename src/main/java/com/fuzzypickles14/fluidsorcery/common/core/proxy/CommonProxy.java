@@ -18,8 +18,8 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
  */
 public class CommonProxy {
     public void preInit(FMLPreInitializationEvent event) {
-        ModFluids.preInit();
         ModItems.initItems();
+        ModFluids.Init();
         ModBlocks.initBlocks();
         CraftingRecipes.initRecipes();
     }

@@ -1,11 +1,13 @@
-tile.BlockFountainBrick.info=Fountain Brick
-tile.BlockNoviceTank.info=Novice Receptacle
-tile.fluidsorcery.fluid.scorch.info=Scorch
-tis.fluidsorcery.fluid.mist.nsme=Mist
-item.ItemManual.info=Fluimancer's Manual
-item.ItemScorchedLeather.info=Scorched Leather
-item.ItemGaleThread.info=Gale Thread
-item.ItemMistFibers.info=Mist Fibers
+tile.BlockFountainBrick.name=Fountain Brick
+tile.BlockNoviceTank.name=Novice Receptacle
+tile.fluidsorcery.fluid.scorch.name=Scorch
+tile.fluidsorcery.fluid.mist.name=Mist
+tile.fluidsorcery.fluid.aer.name=Aer
+tile.fluidsorcery.fluid.terre.name=Terre
+item.ItemManual.name=Fluimancer's Manual
+item.ItemScorchedLeather.name=Scorched Leather
+item.ItemGaleThread.name=Gale Thread
+item.ItemMistFibers.name=Mist Fibers
 
 
 

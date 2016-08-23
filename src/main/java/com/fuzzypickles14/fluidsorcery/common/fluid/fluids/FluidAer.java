@@ -2,6 +2,7 @@ package com.fuzzypickles14.fluidsorcery.common.fluid.fluids;
 
 import com.fuzzypickles14.fluidsorcery.common.fluid.ModBlockLiquid;
 import com.fuzzypickles14.fluidsorcery.common.fluid.ModFluid;
+import com.fuzzypickles14.fluidsorcery.common.lib.LibModDetails;
 import net.minecraft.block.material.Material;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.Fluid;
@@ -11,7 +12,7 @@ import net.minecraftforge.fluids.Fluid;
  */
 public class FluidAer extends ModFluid {
 
-    public FluidAer(String fluidName, ResourceLocation still, ResourceLocation flowing) {
-        super(fluidName, still, flowing);
+    public FluidAer() {
+        super("aer", new ResourceLocation(LibModDetails.MOD_ID + ":blocks/aerStill"), new ResourceLocation(LibModDetails.MOD_ID + ":blocks/aerFlow"));
     }
 }

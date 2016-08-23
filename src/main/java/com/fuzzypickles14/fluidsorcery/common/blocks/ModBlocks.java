@@ -5,8 +5,10 @@ import com.fuzzypickles14.fluidsorcery.common.blocks.tanks.BlockTank;
 import com.fuzzypickles14.fluidsorcery.common.blocks.tileEntities.TileTankNovice;
 import com.fuzzypickles14.fluidsorcery.common.core.render.BlockRender;
 import com.fuzzypickles14.fluidsorcery.common.core.render.FluidRenderer;
+import com.fuzzypickles14.fluidsorcery.common.fluid.blockfluids.BlockAer;
 import com.fuzzypickles14.fluidsorcery.common.fluid.blockfluids.BlockMist;
 import com.fuzzypickles14.fluidsorcery.common.fluid.blockfluids.BlockScorch;
+import com.fuzzypickles14.fluidsorcery.common.fluid.blockfluids.BlockTerre;
 import com.fuzzypickles14.fluidsorcery.common.fluid.fluids.FluidMist;
 import com.fuzzypickles14.fluidsorcery.common.fluid.fluids.FluidScorch;
 import net.minecraft.block.Block;
@@ -25,23 +27,24 @@ public class ModBlocks {
 
     public static Block scorch;
     public static Block mist;
+    public static Block aer;
+    public static Block terre;
 
 
 
     public static void initBlocks() {
-        FluidRegistry.registerFluid(new FluidScorch());
         scorch = registerBlock(new BlockScorch(), "BlockScorch");
-
-        FluidRegistry.registerFluid(new FluidMist());
-
         mist = registerBlock(new BlockMist(), "BlockMist");
+        aer = registerBlock(new BlockAer(), "BlockAer");
+        terre = registerBlock(new BlockTerre(), "BlockTerre");
 
 
         fountainBrick = registerBlock(new BlockFountainBrick(Material.rock, "BlockFountainBrick", 4.0f, 4.0f), "BlockFountainBrick");
 
-
         FluidRenderer.renderFluid(scorch);
         FluidRenderer.renderFluid(mist);
+        FluidRenderer.renderFluid(aer);
+        FluidRenderer.renderFluid(terre);
 
 
         GameRegistry.registerTileEntity(TileTankNovice.class, "TileTankNovice");

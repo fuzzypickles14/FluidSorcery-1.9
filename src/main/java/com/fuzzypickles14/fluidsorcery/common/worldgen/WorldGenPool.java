@@ -19,7 +19,7 @@ public class WorldGenPool {
     }
 
     public boolean generate(World world, Random rand, BlockPos position) {
-        if (rand.nextInt(100) > 5)
+        if (rand.nextInt(100) > 2)
             return false;
         if (world.getBlockState(position) == Blocks.air.getDefaultState())
             return false;
@@ -34,12 +34,6 @@ public class WorldGenPool {
         }
         else return false;
     }
-
-
-
-
-
-
 
     private boolean checkAreaForLake(World world, BlockPos position)
     {

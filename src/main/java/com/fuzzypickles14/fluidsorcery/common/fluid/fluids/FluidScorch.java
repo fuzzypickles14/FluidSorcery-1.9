@@ -13,9 +13,6 @@ public class FluidScorch extends ModFluid {
 
     public FluidScorch() {
         super("scorch", new ResourceLocation(LibModDetails.MOD_ID + ":blocks/scorchStill"), new ResourceLocation(LibModDetails.MOD_ID + ":blocks/scorchFlow"));
-
-        setDensity(2000);
-        setViscosity(2000);
     }
 
     @Override

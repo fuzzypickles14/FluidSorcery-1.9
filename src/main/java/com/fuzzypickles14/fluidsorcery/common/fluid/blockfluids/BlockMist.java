@@ -2,6 +2,7 @@ package com.fuzzypickles14.fluidsorcery.common.fluid.blockfluids;
 
 import com.fuzzypickles14.fluidsorcery.common.fluid.ModBlockLiquid;
 import com.fuzzypickles14.fluidsorcery.common.fluid.ModFluid;
+import com.fuzzypickles14.fluidsorcery.common.fluid.ModFluids;
 import com.fuzzypickles14.fluidsorcery.common.fluid.fluids.FluidMist;
 import com.fuzzypickles14.fluidsorcery.common.item.ModItems;
 import com.fuzzypickles14.fluidsorcery.common.lib.LibModDetails;
@@ -18,10 +19,9 @@ import net.minecraft.world.World;
  * Created by Andrew Toomey on 3/29/2016.
  */
 public class BlockMist extends ModBlockLiquid {
-    public static ModFluid mist = new FluidMist();
     public BlockMist() {
-        super(mist, Material.water, Item.getItemFromBlock(Blocks.web), ModItems.mistFibers);
+        super(ModFluids.mist, Material.water, Item.getItemFromBlock(Blocks.web), ModItems.mistFibers);
         setUnlocalizedName(LibModDetails.MOD_ID + ".fluid.mist");
-        mist.setBlock(this);
+        ModFluids.mist.setBlock(this);
     }
 }
