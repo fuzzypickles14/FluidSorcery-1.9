@@ -6,7 +6,9 @@ import com.fuzzypickles14.fluidsorcery.common.fluid.ModFluids;
 import com.fuzzypickles14.fluidsorcery.common.fluid.fluids.FluidMist;
 import com.fuzzypickles14.fluidsorcery.common.item.ModItems;
 import com.fuzzypickles14.fluidsorcery.common.lib.LibModDetails;
+import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.material.MaterialLiquid;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -20,7 +22,7 @@ import net.minecraft.world.World;
  */
 public class BlockMist extends ModBlockLiquid {
     public BlockMist() {
-        super(ModFluids.mist, Material.water, Item.getItemFromBlock(Blocks.web), ModItems.mistFibers);
+        super(ModFluids.mist, new MaterialLiquid(MapColor.blueColor), Item.getItemFromBlock(Blocks.web), ModItems.mistFibers);
         setUnlocalizedName(LibModDetails.MOD_ID + ".fluid.mist");
         ModFluids.mist.setBlock(this);
     }

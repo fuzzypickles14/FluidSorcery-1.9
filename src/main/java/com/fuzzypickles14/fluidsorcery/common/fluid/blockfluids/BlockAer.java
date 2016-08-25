@@ -4,7 +4,9 @@ import com.fuzzypickles14.fluidsorcery.common.fluid.ModBlockLiquid;
 import com.fuzzypickles14.fluidsorcery.common.fluid.ModFluids;
 import com.fuzzypickles14.fluidsorcery.common.item.ModItems;
 import com.fuzzypickles14.fluidsorcery.common.lib.LibModDetails;
+import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.material.MaterialLiquid;
 import net.minecraft.init.Items;
 
 /**
@@ -12,7 +14,7 @@ import net.minecraft.init.Items;
  */
 public class BlockAer extends ModBlockLiquid {
     public BlockAer() {
-        super(ModFluids.aer, Material.water, Items.string, ModItems.galeThread);
+        super(ModFluids.aer, new MaterialLiquid(MapColor.yellowColor), Items.string, ModItems.galeThread);
         setUnlocalizedName(LibModDetails.MOD_ID + ".fluid.aer");
         ModFluids.aer.setBlock(this);
     }

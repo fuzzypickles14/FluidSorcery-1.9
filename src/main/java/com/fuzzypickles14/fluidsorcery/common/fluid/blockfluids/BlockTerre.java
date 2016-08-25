@@ -4,7 +4,8 @@ import com.fuzzypickles14.fluidsorcery.common.fluid.ModBlockLiquid;
 import com.fuzzypickles14.fluidsorcery.common.fluid.ModFluids;
 import com.fuzzypickles14.fluidsorcery.common.item.ModItems;
 import com.fuzzypickles14.fluidsorcery.common.lib.LibModDetails;
-import net.minecraft.block.material.Material;
+import net.minecraft.block.material.MapColor;
+import net.minecraft.block.material.MaterialLiquid;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 
@@ -13,7 +14,7 @@ import net.minecraft.item.Item;
  */
 public class BlockTerre extends ModBlockLiquid {
     public BlockTerre() {
-        super(ModFluids.terre, Material.water, Item.getItemFromBlock(Blocks.web), ModItems.mistFibers);
+        super(ModFluids.terre, new MaterialLiquid(MapColor.greenColor), Item.getItemFromBlock(Blocks.web), ModItems.mistFibers);
         setUnlocalizedName(LibModDetails.MOD_ID + ".fluid.terre");
         ModFluids.terre.setBlock(this);
     }

@@ -6,7 +6,9 @@ import com.fuzzypickles14.fluidsorcery.common.fluid.ModFluids;
 import com.fuzzypickles14.fluidsorcery.common.fluid.fluids.FluidScorch;
 import com.fuzzypickles14.fluidsorcery.common.item.ModItems;
 import com.fuzzypickles14.fluidsorcery.common.lib.LibModDetails;
+import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.material.MaterialLiquid;
 import net.minecraft.init.Items;
 
 
@@ -16,7 +18,7 @@ import net.minecraft.init.Items;
 public class BlockScorch extends ModBlockLiquid {
 
     public BlockScorch() {
-        super(ModFluids.scorch, Material.water, Items.leather, ModItems.scorchLeather);
+        super(ModFluids.scorch, new MaterialLiquid(MapColor.redColor), Items.leather, ModItems.scorchLeather);
         setUnlocalizedName(LibModDetails.MOD_ID + ".fluid.scorch");
         ModFluids.scorch.setBlock(this);
     }
