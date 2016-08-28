@@ -21,5 +21,6 @@ public class BlockScorch extends ModBlockLiquid {
         super(ModFluids.scorch, new MaterialLiquid(MapColor.redColor), Items.leather, ModItems.scorchLeather);
         setUnlocalizedName(LibModDetails.MOD_ID + ".fluid.scorch");
         ModFluids.scorch.setBlock(this);
+
     }
 }
